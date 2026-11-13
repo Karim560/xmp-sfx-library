@@ -48,6 +48,11 @@ ol li::before { content: counter(s); position: absolute; inset-inline-start: 0; 
 code { padding: 2px 7px; background: rgba(255,255,255,0.07); border-radius: 6px; font-family: var(--mono); font-size: 12.5px; color: var(--amber); direction: ltr; display: inline-block; }
 .card { margin: 34px 0; padding: 22px 24px; background: var(--char); border: 1px solid var(--ash); border-radius: 18px; }
 .note { margin-top: 16px; color: var(--smoke); font-size: 13px; }
+.code { display: block; width: 100%; padding: 16px 10px; border: 1px dashed rgba(255,106,26,0.55); border-radius: 13px;
+  background: rgba(255,106,26,0.07); color: var(--amber); font-family: var(--mono); font-size: clamp(14px, 4.2vw, 21px);
+  font-weight: 700; letter-spacing: 0.06em; direction: ltr; cursor: pointer; transition: background .15s, border-color .15s; }
+.code:hover { background: rgba(255,106,26,0.14); border-color: var(--ember); }
+.code.done { border-style: solid; border-color: #46d99a; color: #46d99a; }
 footer { margin-top: 48px; color: #6f6872; font-size: 12px; text-align: center; }
 footer a { color: var(--smoke); }
 @media (max-width: 520px) { body { padding-top: 34px; } h1 { font-size: 25px; } }
@@ -60,13 +65,19 @@ footer a { color: var(--smoke); }
   <p class="lead">تسمع الصوت وتشوف شكل الموجة وتنزّله على التايملاين بضغطة واحدة، من غير ما تخرج من المشروع ولا تدوّر في المجلدات.</p>
 
   <a class="cta" href="https://github.com/Karim560/xmp-sfx-library/releases/latest/download/XMP-SFX.zip">تحميل الآن<small>ملف واحد · 525 صوت · ويندوز وماك</small></a>
-  <p class="under">البرنامج مجاني، ومحتاج كود تفعيل تطلبه من كريم.</p>
+  <p class="under">مجاني بالكامل، والكود تحت في الصفحة.</p>
 
   <ul class="stats">
     <li><b>525</b><span>مؤثر صوتي</span></li>
     <li><b>15</b><span>تصنيف</span></li>
     <li><b>CC0</b><span>مجانية تماماً</span></li>
   </ul>
+
+  <div class="card">
+    <h2>كود التفعيل</h2>
+    <button class="code" id="code" data-code="XMP-JKYTG-JTYYV-R9WGH-23CQX">XMP-JKYTG-JTYYV-R9WGH-23CQX</button>
+    <p class="note" id="codenote">دوس على الكود عشان تنسخه، والصقه في اللوحة أول ما تفتحها.</p>
+  </div>
 
   <div class="card">
     <h2>التثبيت في دقيقة</h2>
@@ -90,5 +101,35 @@ footer a { color: var(--smoke); }
     آخر تحديث 2026-11-13 · <a href="https://github.com/Karim560/xmp-sfx-library">صفحة المشروع</a>
   </footer>
 </div>
+<script>
+(function () {
+  var b = document.getElementById('code');
+  if (!b) return;
+  var note = document.getElementById('codenote');
+  var was = note.textContent;
+  b.addEventListener('click', function () {
+    var text = b.getAttribute('data-code');
+    function done() {
+      b.className = 'code done';
+      note.textContent = 'اتنسخ. الصقه في اللوحة بعد التثبيت.';
+      setTimeout(function () { b.className = 'code'; note.textContent = was; }, 2600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, select);
+    } else {
+      select();
+    }
+    // older browsers, and anywhere the clipboard is blocked: select it so one tap copies
+    function select() {
+      var r = document.createRange();
+      r.selectNodeContents(b);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+      note.textContent = 'الكود محدد — اضغط نسخ.';
+    }
+  });
+}());
+</script>
 </body>
 </html>
