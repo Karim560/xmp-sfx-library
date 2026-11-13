@@ -1,10 +1,23 @@
 {
- "version": 2,
+ "version": 4,
  "updated": "2026-11-13",
- "sounds": [],
+ "sounds": [
+  {
+   "id": "riser/ascending-ufo-fast-takeoff-1d2a05df.mp3",
+   "file": "sounds/riser/ascending-ufo-fast-takeoff-1d2a05df.mp3",
+   "cat": "riser",
+   "name": "ascending ufo fast takeoff",
+   "size": 259872
+  },
+  {
+   "id": "riser/fx-uplifter-13-9cce9c28.mp3",
+   "file": "sounds/riser/fx-uplifter-13-9cce9c28.mp3",
+   "cat": "riser",
+   "name": "fx uplifter 13",
+   "size": 221747
+  }
+ ],
  "hidden": [
-  "riser/ascending-ufo-fast-takeoff-1d2a05df.mp3",
-  "riser/fx-uplifter-13-9cce9c28.mp3",
   "riser/rise5-wav-a9465347.mp3",
   "riser/riser-2-mp3-ab8c7cec.mp3",
   "riser/riser-fx-90bpm-4da86205.mp3",
