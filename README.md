@@ -10,4 +10,4 @@ Every installed XMP SFX panel reads `library.json` from this folder: it says wha
 download and what to let go of. The control room writes it (`node control/server.mjs`);
 editing it by hand would be overwritten on the next publish.
 
-Library version 7, updated 2026-11-13.
+Library version 10, updated 2026-11-14.

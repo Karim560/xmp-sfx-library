@@ -1,6 +1,10 @@
 {
- "version": 7,
- "updated": "2026-11-13",
+ "version": 10,
+ "updated": "2026-11-14",
+ "app": {
+  "version": "1.4.0",
+  "page": "https://karim560.github.io/xmp-sfx-library/"
+ },
  "sounds": [],
  "hidden": [
   "riser/rise5-wav-a9465347.mp3",
